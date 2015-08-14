@@ -1,0 +1,25 @@
+#
+#*- mode: ruby -*-
+# vi: set ft=ruby :
+#
+# Vagrantfile for step 2: uses vagrant-hosts for host provisioning
+# Variables for puppet configuration:
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+
+Vagrant.configure(2) do |config|
+  
+config.vm.define :letschat do |node|
+    node.vm.box = "hashicorp/precise64"
+    node.vm.hostname = "letschat"
+    node.vm.provision :hosts
+  end
+  
+  config.vm.provider "vmware_appcatalyst" do |vb|
+    vb.cpus = '1'
+    vb.memory = "1024"
+  end
+end
