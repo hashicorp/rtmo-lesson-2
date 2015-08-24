@@ -11,12 +11,12 @@
 # you're doing.
 $install = <<INSTALLER
 sudo su
-wget -P /tmp https://apt.puppetlabs.com/puppetlabs-release-precise.deb
-dpkg -i /tmp/puppetlabs-release-precise.deb
+#wget -P /tmp https://apt.puppetlabs.com/puppetlabs-release-precise.deb
+#dpkg -i /tmp/puppetlabs-release-precise.deb
 apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
 echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen" | tee -a /etc/apt/sources.list.d/10gen.list
 apt-get -y update
-sudo apt-get -y install puppet vim git
+sudo apt-get -y install vim git
 INSTALLER
 
 Vagrant.configure(2) do |config|
