@@ -23,7 +23,6 @@ config.vm.define :letschat do |node|
     node.vm.box = "hashicorp/precise64"
     node.vm.provision "shell", inline: $install
     node.vm.hostname = "letschat"
-    node.vm.provision :hosts
   end
   
   config.vm.provider "vmware_appcatalyst" do |vb|
